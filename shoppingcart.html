@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Cart – Bean Boutique</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="homepage.html" class="navbar__logo">Bean <span>Boutique</span></a>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navbar__links" id="navLinks" role="menubar">
+      <li><a href="homepage.html"      role="menuitem"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="coffee.html"        role="menuitem"><i class="fa-solid fa-mug-hot"></i> Coffee</a></li>
+      <li><a href="equipment.html"     role="menuitem"><i class="fa-solid fa-sliders"></i> Equipment</a></li>
+      <li><a href="events.html"        role="menuitem"><i class="fa-solid fa-calendar-days"></i> Events</a></li>
+      <li><a href="specialoffers.html" role="menuitem"><i class="fa-solid fa-tags"></i> Offers</a></li>
+      <li><a href="shoppingcart.html" class="active" role="menuitem"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+    </ul>
+    <a href="shoppingcart.html" class="navbar__cart-btn">
+      <i class="fa-solid fa-cart-shopping"></i> Cart (<span id="navCartCount">0</span>)
+    </a>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <header class="page-hero" role="banner">
+    <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1400&q=80"
+         alt="Coffee beans background" class="page-hero__bg" aria-hidden="true" />
+    <span class="section__label"><i class="fa-solid fa-cart-shopping"></i> Your Selections</span>
+    <h1>Shopping Cart</h1>
+    <p>Review your items, adjust quantities, and proceed to checkout when you're ready.</p>
+  </header>
+
+  <!-- ===== CART CONTENT ===== -->
+  <section class="section section--offwhite" aria-labelledby="cartHeading">
+    <div class="container">
+      <h2 id="cartHeading" class="hidden">Cart Contents</h2>
+
+      <!-- Cart count header -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
+        <h3 id="cartCountHeading" style="font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;color:#5C3D2E;">
+          <i class="fa-solid fa-basket-shopping" style="color:#C8852A;"></i>
+          <span id="cartItemLabel">0 items in your cart</span>
+        </h3>
+        <button id="clearCartBtn" class="btn btn--outline btn--sm" style="color:#c0392b;border-color:#c0392b;">
+          <i class="fa-solid fa-trash"></i> Clear Cart
+        </button>
+      </div>
+
+      <div class="cart-layout">
+
+        <!-- LEFT: scrollable cart items -->
+        <div>
+          <!-- Scrollable wrapper — holds unlimited items -->
+          <div class="cart-items-wrap" id="cartItemsWrap" aria-label="Cart items" aria-live="polite">
+            <!-- Items injected by JS from localStorage -->
+          </div>
+
+          <!-- Empty state -->
+          <div id="emptyCart" style="display:none;text-align:center;padding:4rem 1rem;background:#fff;border-radius:14px;border:1px solid #E5D5C5;">
+            <i class="fa-solid fa-cart-shopping" style="font-size:3rem;color:#E5D5C5;margin-bottom:1rem;display:block;"></i>
+            <h3 style="font-family:'Playfair Display',serif;margin-bottom:0.5rem;">Your cart is empty</h3>
+            <p style="color:#A0714F;margin-bottom:1.5rem;">Looks like you haven't added anything yet.</p>
+            <a href="coffee.html" class="btn btn--primary"><i class="fa-solid fa-mug-hot"></i> Browse Coffees</a>
+            <a href="equipment.html" class="btn btn--outline" style="margin-left:0.75rem;"><i class="fa-solid fa-sliders"></i> Browse Equipment</a>
+          </div>
+
+          <!-- Promo code -->
+          <div id="promoSection" style="margin-top:1.5rem;display:flex;gap:0.75rem;flex-wrap:wrap;">
+            <input type="text" id="promoInput" placeholder="Promo code e.g. SUMMER20"
+              style="flex:1;padding:0.65rem 1rem;border:1.5px solid #E5D5C5;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:0.95rem;outline:none;min-width:180px;transition:border-color 0.3s;" />
+            <button class="btn btn--outline" id="applyPromo"><i class="fa-solid fa-ticket"></i> Apply</button>
+          </div>
+          <p id="promoMsg" style="font-size:0.85rem;margin-top:0.5rem;"></p>
+        </div>
+
+        <!-- RIGHT: order summary -->
+        <div class="cart-summary" id="cartSummary" aria-label="Order summary">
+          <h3><i class="fa-solid fa-receipt"></i> Order Summary</h3>
+
+          <div class="summary-row">
+            <span><i class="fa-solid fa-box-open"></i> Subtotal (<span id="itemCount">0</span> items)</span>
+            <span id="subtotal">£0.00</span>
+          </div>
+          <div class="summary-row">
+            <span><i class="fa-solid fa-truck"></i> Delivery</span>
+            <span id="delivery">Free</span>
+          </div>
+          <div class="summary-row" id="discountRow" style="display:none;color:#7A8C6E;">
+            <span><i class="fa-solid fa-percent"></i> Discount (SUMMER20)</span>
+            <span id="discountAmt">−£0.00</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total</span>
+            <span id="orderTotal">£0.00</span>
+          </div>
+
+          <button class="btn btn--primary btn--full" style="margin-top:1.5rem;" id="checkoutBtn">
+            <i class="fa-solid fa-lock"></i> Proceed to Checkout
+          </button>
+
+          <p style="font-size:0.78rem;color:rgba(247,239,229,0.5);text-align:center;margin-top:1rem;">
+            <i class="fa-solid fa-shield-halved"></i> Secure checkout — your data is protected.<br />
+            We accept Visa, Mastercard, PayPal &amp; Apple Pay.
+          </p>
+
+          <div class="payment-icons">
+            <i class="fa-brands fa-cc-visa" title="Visa"></i>
+            <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+            <i class="fa-brands fa-cc-paypal" title="PayPal"></i>
+            <i class="fa-brands fa-cc-apple-pay" title="Apple Pay"></i>
+          </div>
+
+          <a href="coffee.html" style="display:block;text-align:center;margin-top:1.25rem;font-size:0.85rem;color:rgba(247,239,229,0.55);text-decoration:underline;">
+            <i class="fa-solid fa-arrow-left"></i> Continue Shopping
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Confirmation Modal -->
+<div id="confirmModal" class="modal-overlay">
+  <div class="modal-content">
+    <h3>Clear Cart?</h3>
+    <p>Are you sure you want to remove all items from your cart?</p>
+    <div class="modal-actions">
+      <button id="cancelClear" class="btn btn--outline">Cancel</button>
+      <button id="confirmClear" class="btn btn--primary">Yes, Clear Cart</button>
+    </div>
+  </div>
+</div>
+
+  <!-- ===== YOU MIGHT ALSO LIKE ===== -->
+  <section class="section section--cream" aria-labelledby="suggestHeading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label"><i class="fa-solid fa-heart"></i> Recommendations</span>
+        <h2 id="suggestHeading">You Might Also Like</h2>
+      </div>
+      <div class="card-grid">
+
+        <article class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/Colombian Huila.jpg" alt="Colombian Huila coffee" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-location-dot"></i> Single Origin · Colombia</span>
+            <h3>Colombian Huila</h3>
+            <p>Sweet, balanced — red apple, brown sugar, and toasted almond.</p>
+            <p class="card__price">£11.75</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary btn--sm add-to-cart-btn"
+              data-id="col" data-name="Colombian Huila" data-price="11.75"
+              data-sub="250g · Medium Roast"
+              data-img="Images/Colombian Huila.jpg">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/Chemex coffee brewer.jpg" alt="Chemex brewer" loading="lazy" style="object-position: center 80%;"/>
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-filter"></i> Pour-Over</span>
+            <h3>Chemex 6-Cup Classic</h3>
+            <p>An icon of industrial design from 1941. Brews a clean, clear cup.</p>
+            <p class="card__price">£42.00</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary btn--sm add-to-cart-btn"
+              data-id="chemex" data-name="Chemex 6-Cup Classic" data-price="42.00"
+              data-sub="Pour-Over Brewer"
+              data-img="Images/Chemex coffee brewer.jpg">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/goose neck kettle.jpg" alt="Fellow Stagg EKG kettle" loading="lazy" style="object-position: center 75%;" />
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-temperature-high"></i> Accessories</span>
+            <h3>Fellow Stagg EKG Kettle</h3>
+            <p>Variable temperature gooseneck kettle with 0.5°C precision.</p>
+            <p class="card__price">£155.00</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary btn--sm add-to-cart-btn"
+              data-id="kettle" data-name="Fellow Stagg EKG Kettle" data-price="155.00"
+              data-sub="Variable Temp Kettle"
+              data-img="Images/goose neck kettle.jpg">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/summer limited.jpg" alt="Kenyan coffee" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-star"></i> Seasonal · Limited</span>
+            <h3>Kenyan Summer Limited</h3>
+            <p>Intensely fruity and wine-like. Blackcurrant, tomato, grapefruit.</p>
+            <p class="card__price">£15.99</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary btn--sm add-to-cart-btn"
+              data-id="ken" data-name="Kenyan Summer Limited" data-price="15.99"
+              data-sub="250g · Light Roast"
+              data-img="Images/summer limited.jpg">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/Barista Express.jpg" alt="Sage espresso machine" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-mug-hot"></i> Espresso Machine</span>
+            <h3>Sage Barista Express</h3>
+            <p>All-in-one with integrated burr grinder. The home barista's dream.</p>
+            <p class="card__price">£549.00</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary btn--sm add-to-cart-btn"
+              data-id="sage" data-name="Sage Barista Express" data-price="549.00"
+              data-sub="Espresso Machine"
+              data-img="Images/Barista Express.jpg">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/cold brew maker.jpg" alt="Cold brew maker" loading="lazy" style="object-position: center 30%;" />
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-snowflake"></i> Cold Brew</span>
+            <h3>OXO Cold Brew Maker</h3>
+            <p>Smooth, low-acid cold brew concentrate in 12–24 hours.</p>
+            <p class="card__price">£49.99</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary btn--sm add-to-cart-btn"
+              data-id="oxo" data-name="OXO Cold Brew Maker" data-price="49.99"
+              data-sub="32oz Cold Brew"
+              data-img="Images/cold brew maker.jpg">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand-name">Bean Boutique</p>
+        <p class="footer__tagline">Artisan coffee roasted with care in the heart of Myanmar.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="footer__social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="footer__social-link" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer__col"><h5>Shop</h5><ul>
+        <li><a href="coffee.html"><i class="fa-solid fa-mug-hot"></i> Coffee Selection</a></li>
+        <li><a href="equipment.html"><i class="fa-solid fa-sliders"></i> Equipment</a></li>
+        <li><a href="specialoffers.html"><i class="fa-solid fa-tags"></i> Special Offers</a></li>
+        <li><a href="shoppingcart.html"><i class="fa-solid fa-cart-shopping"></i> Your Cart</a></li>
+      </ul></div>
+      <div class="footer__col"><h5>Learn</h5><ul>
+        <li><a href="events.html"><i class="fa-solid fa-calendar-days"></i> Events</a></li>
+        <li><a href="#"><i class="fa-solid fa-book-open"></i> Brewing Guides</a></li>
+      </ul></div>
+      <div class="footer__col"><h5>Company</h5><ul>
+        <li><a href="#"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+        <li><a href="#"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a></li>
+        <li><a href="#"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul></div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 Bean Boutique Ltd. All rights reserved.</p>
+      <p>Based in Mandalay, Myanmar.</p>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT — localStorage cart engine ===== -->
+  <script>
+    /* ---- localStorage helpers ---- */
+    function getCart()      { try { return JSON.parse(localStorage.getItem('bb_cart')) || []; } catch(e) { return []; } }
+    function saveCart(cart) { localStorage.setItem('bb_cart', JSON.stringify(cart)); }
+
+    /* ---- Update the navbar count badge ---- */
+    function updateNavCount() {
+      const total = getCart().reduce((s, i) => s + i.qty, 0);
+      document.getElementById('navCartCount').textContent = total;
+    }
+    function showToast(productName) {
+      let toast = document.getElementById('cartToast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'cartToast';
+        toast.className = 'cart-toast';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${productName} added to cart!`;
+      toast.classList.add('show');
+      setTimeout(() => { toast.classList.remove('show'); }, 3000);
+    }
+
+    /* ---- Build one cart row from a cart item object ---- */
+    function buildCartRow(item) {
+      const div = document.createElement('article');
+      div.className = 'cart-item';
+      div.dataset.id = item.id;
+
+      /* image or icon fallback */
+      const imgHtml = item.img
+        ? `<div class="cart-item__img-wrap"><img src="${item.img}" alt="${item.name}" loading="lazy" /></div>`
+        : `<div class="cart-item__icon"><i class="fa-solid fa-mug-hot"></i></div>`;
+
+      div.innerHTML = `
+        ${imgHtml}
+        <div>
+          <p class="cart-item__name">${item.name}</p>
+          <p class="cart-item__sub">${item.sub || ''}</p>
+          <div class="qty-control" role="group" aria-label="Quantity for ${item.name}">
+            <button class="qty-dec" aria-label="Decrease"><i class="fa-solid fa-minus"></i></button>
+            <span class="qty-val" aria-live="polite">${item.qty}</span>
+            <button class="qty-inc" aria-label="Increase"><i class="fa-solid fa-plus"></i></button>
+          </div>
+        </div>
+        <div class="cart-item__right">
+          <p class="cart-item__price">£${(item.price * item.qty).toFixed(2)}</p>
+          <button class="cart-item__remove" aria-label="Remove ${item.name}">
+            <i class="fa-solid fa-trash-can"></i> Remove
+          </button>
+        </div>`;
+      return div;
+    }
+
+    /* ---- Recalculate totals from current DOM + localStorage ---- */
+    function recalculate() {
+      const cart     = getCart();
+      const wrap     = document.getElementById('cartItemsWrap');
+      const empty    = document.getElementById('emptyCart');
+      const summary  = document.getElementById('cartSummary');
+      const promoSec = document.getElementById('promoSection');
+      const promoMsg = document.getElementById('promoMsg');
+      const label    = document.getElementById('cartItemLabel');
+      const clearBtn = document.getElementById('clearCartBtn');
+
+      /* ---- Re-render all rows from localStorage ---- */
+      wrap.innerHTML = '';
+      cart.forEach(item => wrap.appendChild(buildCartRow(item)));
+
+      const hasItems = cart.length > 0;
+      empty.style.display    = hasItems ? 'none'  : 'block';
+      summary.style.display  = hasItems ? ''      : 'none';
+      promoSec.style.display = hasItems ? 'flex'  : 'none';
+      clearBtn.style.display = hasItems ? ''      : 'none';
+      promoMsg.textContent   = '';
+
+      const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      label.textContent = `${totalQty} item${totalQty !== 1 ? 's' : ''} in your cart`;
+
+      const delivery     = hasItems ? 3.99 : 0;
+      const promoActive  = document.getElementById('discountRow').style.display !== 'none';
+      const discount     = promoActive ? subtotal * 0.2 : 0;
+      const total        = subtotal + delivery - discount;
+
+      document.getElementById('subtotal').textContent  = '£' + subtotal.toFixed(2);
+      document.getElementById('delivery').textContent  = hasItems ? '£3.99' : 'Free';
+      document.getElementById('orderTotal').textContent = '£' + total.toFixed(2);
+      document.getElementById('itemCount').textContent  = totalQty;
+      if (promoActive) document.getElementById('discountAmt').textContent = '−£' + discount.toFixed(2);
+
+      updateNavCount();
+    }
+
+    /* ---- Qty & remove — event delegation on wrapper ---- */
+    document.getElementById('cartItemsWrap').addEventListener('click', function (e) {
+      const row  = e.target.closest('.cart-item');
+      if (!row) return;
+      const id   = row.dataset.id;
+      const cart = getCart();
+      const idx  = cart.findIndex(i => i.id === id);
+      if (idx === -1) return;
+
+      if (e.target.closest('.qty-inc')) {
+        cart[idx].qty++;
+        saveCart(cart); recalculate();
+      } else if (e.target.closest('.qty-dec')) {
+        if (cart[idx].qty > 1) { cart[idx].qty--; saveCart(cart); recalculate(); }
+      } else if (e.target.closest('.cart-item__remove')) {
+        cart.splice(idx, 1);
+        saveCart(cart); recalculate();
+      }
+    });
+
+    /* ---- Clear cart ---- */
+    const modal = document.getElementById('confirmModal');
+
+    document.getElementById('clearCartBtn').addEventListener('click', () => {
+      modal.style.display = 'flex'; // Show the custom modal
+    });
+
+    document.getElementById('cancelClear').addEventListener('click', () => {
+      modal.style.display = 'none'; // Hide it
+    });
+
+    document.getElementById('confirmClear').addEventListener('click', () => {
+      saveCart([]); 
+      recalculate();
+      modal.style.display = 'none'; // Hide it after clearing
+    });
+
+    /* ---- Promo code ---- */
+    document.getElementById('applyPromo').addEventListener('click', function () {
+      const code = document.getElementById('promoInput').value.trim().toUpperCase();
+      const msg  = document.getElementById('promoMsg');
+      const row  = document.getElementById('discountRow');
+      if (code === 'SUMMER20') {
+        row.style.display = 'flex';
+        msg.style.color   = '#7A8C6E';
+        msg.innerHTML     = '<i class="fa-solid fa-circle-check"></i> Promo code applied — 20% off!';
+        recalculate();
+      } else {
+        row.style.display = 'none';
+        msg.style.color   = '#c0392b';
+        msg.innerHTML     = '<i class="fa-solid fa-circle-xmark"></i> Invalid code. Try SUMMER20.';
+        recalculate();
+      }
+    });
+
+    /* ---- Checkout ---- */
+    document.getElementById('checkoutBtn').addEventListener('click', function () {
+      alert('Checkout will be enabled once our payment system is live. Thank you for your patience!');
+    });
+
+    /* ---- Suggestions "Add to Cart" ---- */
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const cart = getCart();
+        const ex   = cart.find(i => i.id === this.dataset.id);
+        if (ex) ex.qty++;
+        else cart.push({ id: this.dataset.id, name: this.dataset.name, price: parseFloat(this.dataset.price), sub: this.dataset.sub, img: this.dataset.img, qty: 1 });
+        saveCart(cart); recalculate();
+        showToast(this.dataset.name); 
+
+        this.innerHTML = '<i class="fa-solid fa-check"></i> Added!';
+        this.style.background = '#7A8C6E';
+        setTimeout(() => { this.innerHTML = '<i class="fa-solid fa-cart-plus"></i> Add to Cart'; this.style.background = ''; }, 1500);
+      });
+       
+    });
+
+    /* ---- Hamburger ---- */
+    document.getElementById('hamburger').addEventListener('click', function () {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('open');
+      this.setAttribute('aria-expanded', nav.classList.contains('open'));
+    });
+
+    /* ---- Scroll reveal ---- */
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    /* ---- Initial render on page load ---- */
+    recalculate();
+  </script>
+
+</body>
+</html>

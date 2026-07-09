@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brewing Equipment – Bean Boutique</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="homepage.html" class="navbar__logo">Bean <span>Boutique</span></a>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navbar__links" id="navLinks" role="menubar">
+      <li><a href="homepage.html"      role="menuitem"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="coffee.html"        role="menuitem"><i class="fa-solid fa-mug-hot"></i> Coffee</a></li>
+      <li><a href="equipment.html" class="active" role="menuitem"><i class="fa-solid fa-sliders"></i> Equipment</a></li>
+      <li><a href="events.html"        role="menuitem"><i class="fa-solid fa-calendar-days"></i> Events</a></li>
+      <li><a href="specialoffers.html" role="menuitem"><i class="fa-solid fa-tags"></i> Offers</a></li>
+      <li><a href="shoppingcart.html"  role="menuitem"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+    </ul>
+    <a href="shoppingcart.html" class="navbar__cart-btn">
+      <i class="fa-solid fa-cart-shopping"></i> Cart (<span id="navCartCount">0</span>)
+    </a>
+  </nav>
+
+  <header class="page-hero" role="banner">
+    <img src="Images/brewing equipment.jpg" alt="Coffee brewing equipment" class="page-hero__bg" aria-hidden="true" />
+    <span class="section__label"><i class="fa-solid fa-sliders"></i> The Workshop</span>
+    <h1>Brewing Equipment</h1>
+    <p>From espresso machines to humble French presses — every tool you need to brew like a professional.</p>
+  </header>
+
+  <!-- Category Icons -->
+  <section class="section section--cream" aria-label="Equipment categories">
+    <div class="container">
+      <div class="features">
+        <div class="feature reveal">
+          <div class="feature__icon"><i class="fa-solid fa-mug-hot"></i></div>
+          <h4>Espresso</h4>
+          <p>Pump-driven machines for the perfect extraction, every time.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature__icon"><i class="fa-solid fa-filter"></i></div>
+          <h4>Pour-Over</h4>
+          <p>Chemex, V60, Kalita — precision brewing for the patient enthusiast.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature__icon"><i class="fa-solid fa-snowflake"></i></div>
+          <h4>Cold Brew</h4>
+          <p>Slow-steeped, smooth, and endlessly refreshing in warmer months.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature__icon"><i class="fa-solid fa-gears"></i></div>
+          <h4>Grinders</h4>
+          <p>Burr grinders to unlock the full potential of any bean.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipment Catalogue -->
+  <section class="section section--offwhite" aria-labelledby="equipHeading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label"><i class="fa-solid fa-list"></i> Our Range</span>
+        <h2 id="equipHeading">All Equipment</h2>
+        <p>Curated by our baristas for quality, longevity, and genuine brewing pleasure.</p>
+      </div>
+
+      <div class="card-grid">
+
+        <article class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/Barista Express.jpg" alt="Espresso machine" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-mug-hot"></i> Espresso Machine</span>
+            <h3>Sage Barista Express</h3>
+            <p>All-in-one with integrated conical burr grinder. Dose, grind, tamp, and extract from one device.</p>
+            <p style="margin-top:0.75rem;font-size:0.85rem;font-weight:600;color:#5C3D2E;"><i class="fa-solid fa-circle-info"></i> Usage tips:</p>
+            <ul style="margin-top:0.4rem;font-size:0.85rem;color:#A0714F;padding-left:1rem;list-style:disc;">
+              <li>Preheat your portafilter before pulling a shot.</li>
+              <li>Use 18–20g for a double espresso.</li>
+              <li>Aim for a 25–30 second extraction time.</li>
+            </ul>
+            <p class="card__price">£549.00</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" data-id="sage" data-name="Sage Barista Express" data-price="549.00" data-sub="Espresso Machine" data-img="Images/Barista Express.jpg"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+            <a href="events.html" class="btn btn--outline btn--sm"><i class="fa-solid fa-graduation-cap"></i> Workshop</a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/pour over coffee v60.jpg" alt="Hario V60 Dripper" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-filter"></i> Pour-Over</span>
+            <h3>Hario V60 Dripper</h3>
+            <p>The classic conical dripper beloved by specialty coffee professionals worldwide. Ceramic edition for superior heat retention.</p>
+            <p style="margin-top:0.75rem;font-size:0.85rem;font-weight:600;color:#5C3D2E;"><i class="fa-solid fa-circle-info"></i> Usage tips:</p>
+            <ul style="margin-top:0.4rem;font-size:0.85rem;color:#A0714F;padding-left:1rem;list-style:disc;">
+              <li>Rinse the paper filter first to remove papery taste.</li>
+              <li>Bloom your grounds for 30 seconds.</li>
+              <li>Pour in slow, steady circles from centre outward.</li>
+            </ul>
+            <p class="card__price">£28.00</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" data-id="v60" data-name="Hario V60 Dripper" data-price="28.00" data-sub="Ceramic Pour-Over" data-img="Images/pour over coffee v60.jpg"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/Chemex coffee brewer.jpg" alt="Chemex coffee brewer" loading="lazy" style="object-position: center 80%;"/>
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-filter"></i> Pour-Over</span>
+            <h3>Chemex 6-Cup Classic</h3>
+            <p>An icon of industrial design from 1941. Brews a clean, clear, and exceptionally bright cup.</p>
+            <p style="margin-top:0.75rem;font-size:0.85rem;font-weight:600;color:#5C3D2E;"><i class="fa-solid fa-circle-info"></i> Usage tips:</p>
+            <ul style="margin-top:0.4rem;font-size:0.85rem;color:#A0714F;padding-left:1rem;list-style:disc;">
+              <li>Use a medium-coarse grind (similar to sea salt).</li>
+              <li>Total brew time should be 4–5 minutes.</li>
+              <li>Coffee stays warm in the Chemex for up to an hour.</li>
+            </ul>
+            <p class="card__price">£42.00</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" data-id="chemex" data-name="Chemex 6-Cup Classic" data-price="42.00" data-sub="Pour-Over Brewer" data-img="Images/Chemex coffee brewer.jpg"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/french press.jpg" alt="French press coffee" loading="lazy" style="object-position: center 78%;" />
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-flask"></i> Immersion Brew</span>
+            <h3>Bodum Brazil French Press</h3>
+            <p>Timeless, effortless, and wonderfully forgiving. Makes a rich, full-bodied coffee with wonderful texture.</p>
+            <p style="margin-top:0.75rem;font-size:0.85rem;font-weight:600;color:#5C3D2E;"><i class="fa-solid fa-circle-info"></i> Usage tips:</p>
+            <ul style="margin-top:0.4rem;font-size:0.85rem;color:#A0714F;padding-left:1rem;list-style:disc;">
+              <li>Use a coarse grind to prevent over-extraction.</li>
+              <li>Steep for exactly 4 minutes before pressing.</li>
+              <li>Pour immediately after pressing.</li>
+            </ul>
+            <p class="card__price">£24.50</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" data-id="frp" data-name="Bodum Brazil French Press" data-price="24.50" data-sub="6-Cup French Press" data-img="Images/french press.jpg"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/coffee grinder.jpg" loading="lazy" style="object-position: center 85%;" />
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-gears"></i> Grinder</span>
+            <h3>Baratza Encore Burr Grinder</h3>
+            <p>Entry-level burr grinder widely regarded as the best value-for-money on the market. 40 grind settings.</p>
+            <p style="margin-top:0.75rem;font-size:0.85rem;font-weight:600;color:#5C3D2E;"><i class="fa-solid fa-circle-info"></i> Usage tips:</p>
+            <ul style="margin-top:0.4rem;font-size:0.85rem;color:#A0714F;padding-left:1rem;list-style:disc;">
+              <li>Clean the burrs every 2–3 weeks.</li>
+              <li>Settings 8–12 suit most pour-over methods.</li>
+              <li>Grind only what you need — freshness is key.</li>
+            </ul>
+            <p class="card__price">£135.00</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" data-id="grin" data-name="Baratza Encore Burr Grinder" data-price="135.00" data-sub="Electric Burr Grinder" data-img="Images/coffee grinder.jpg"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/moka pot stovetop.jpg" alt="Moka pot stovetop" loading="lazy" style="object-position: center 88%;" />
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-fire"></i> Stovetop</span>
+            <h3>Bialetti Moka Express (6-Cup)</h3>
+            <p>The Italian original since 1933. Makes a strong, rich coffee somewhere between espresso and drip.</p>
+            <p style="margin-top:0.75rem;font-size:0.85rem;font-weight:600;color:#5C3D2E;"><i class="fa-solid fa-circle-info"></i> Usage tips:</p>
+            <ul style="margin-top:0.4rem;font-size:0.85rem;color:#A0714F;padding-left:1rem;list-style:disc;">
+              <li>Fill the base with pre-boiled water.</li>
+              <li>Use medium-fine grind — finer than filter.</li>
+              <li>Never pack grounds tightly.</li>
+            </ul>
+            <p class="card__price">£32.00</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" data-id="moka" data-name="Bialetti Moka Express" data-price="32.00" data-sub="6-Cup Stovetop" data-img="Images/moka pot stovetop.jpg"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/cold brew maker.jpg" alt="Cold brew coffee maker" loading="lazy"  style="object-position: center 30%;"  />
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-snowflake"></i> Cold Brew</span>
+            <h3>OXO Cold Brew Maker (32oz)</h3>
+            <p>Steep, permeate, and serve with this elegant, drip-free system. Makes smooth, low-acid cold brew concentrate in 12–24 hours.</p>
+            <p style="margin-top:0.75rem;font-size:0.85rem;font-weight:600;color:#5C3D2E;"><i class="fa-solid fa-circle-info"></i> Usage tips:</p>
+            <ul style="margin-top:0.4rem;font-size:0.85rem;color:#A0714F;padding-left:1rem;list-style:disc;">
+              <li>Use a coarse grind at 1:4 ratio (coffee to water).</li>
+              <li>Steep 12–24 hours in the fridge.</li>
+              <li>Dilute concentrate 1:1 with cold water to serve.</li>
+            </ul>
+            <p class="card__price">£49.99</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" data-id="oxo" data-name="OXO Cold Brew Maker" data-price="49.99" data-sub="32oz Cold Brew" data-img="Images/cold brew maker.jpg"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/goose neck kettle.jpg" alt="Gooseneck kettle" loading="lazy"  style="object-position: center 75%;"  />
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-temperature-high"></i> Accessories</span>
+            <h3>Fellow Stagg EKG Kettle</h3>
+            <p>Variable temperature gooseneck kettle with 0.5°C precision and a 60-minute hold mode.</p>
+            <p style="margin-top:0.75rem;font-size:0.85rem;font-weight:600;color:#5C3D2E;"><i class="fa-solid fa-circle-info"></i> Usage tips:</p>
+            <ul style="margin-top:0.4rem;font-size:0.85rem;color:#A0714F;padding-left:1rem;list-style:disc;">
+              <li>Light roasts: brew at 96°C; dark roasts: 88–92°C.</li>
+              <li>Use the hold function during blooming.</li>
+            </ul>
+            <p class="card__price">£155.00</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" data-id="kettle" data-name="Fellow Stagg EKG Kettle" data-price="155.00" data-sub="Variable Temp Kettle" data-img="Images/goose neck kettle.jpg"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark" aria-label="Equipment care CTA">
+    <div class="container" style="text-align:center;max-width:640px;">
+      <span class="section__label"><i class="fa-solid fa-graduation-cap"></i> Expert Advice</span>
+      <h2>Not Sure Which Equipment to Choose?</h2>
+      <p style="color:rgba(247,239,229,0.7);margin:1rem 0 2rem;">Our baristas run regular equipment workshops where you can try before you buy.</p>
+      <a href="events.html" class="btn btn--primary"><i class="fa-solid fa-calendar-days"></i> Browse Workshops</a>
+      <a href="homepage.html" class="btn btn--outline-light" style="margin-left:1rem;"><i class="fa-solid fa-house"></i> Back to Home</a>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand-name">Bean Boutique</p>
+        <p class="footer__tagline">Artisan coffee roasted with care in the heart of Myanmar.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="footer__social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer__col"><h5>Shop</h5><ul>
+        <li><a href="coffee.html"><i class="fa-solid fa-mug-hot"></i> Coffee Selection</a></li>
+        <li><a href="equipment.html"><i class="fa-solid fa-sliders"></i> Equipment</a></li>
+        <li><a href="specialoffers.html"><i class="fa-solid fa-tags"></i> Special Offers</a></li>
+        <li><a href="shoppingcart.html"><i class="fa-solid fa-cart-shopping"></i> Your Cart</a></li>
+      </ul></div>
+      <div class="footer__col"><h5>Learn</h5><ul>
+        <li><a href="events.html"><i class="fa-solid fa-calendar-days"></i> Events</a></li>
+        <li><a href="#"><i class="fa-solid fa-book-open"></i> Brewing Guides</a></li>
+      </ul></div>
+      <div class="footer__col"><h5>Company</h5><ul>
+        <li><a href="#"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+        <li><a href="#"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul></div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2026 Bean Boutique Ltd. All rights reserved.</p></div>
+  </footer>
+
+ <script>
+    // --- CART & LOCAL STORAGE LOGIC ---
+    function getCart() { 
+      try { return JSON.parse(localStorage.getItem('bb_cart')) || []; } 
+      catch(e) { return []; } 
+    }
+    
+    function saveCart(c) { 
+      localStorage.setItem('bb_cart', JSON.stringify(c)); 
+    }
+    
+    function updateNavCount() { 
+      const el = document.getElementById('navCartCount'); 
+      if (el) el.textContent = getCart().reduce((s,i) => s + i.qty, 0); 
+    }
+
+    // --- TOAST NOTIFICATION LOGIC ---
+    function showToast(productName) {
+      let toast = document.getElementById('cartToast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'cartToast';
+        toast.className = 'cart-toast';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${productName} added to cart!`;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    updateNavCount();
+    
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const cart = getCart(), ex = cart.find(i => i.id === this.dataset.id);
+        
+        if (ex) ex.qty++; 
+        else cart.push({
+          id: this.dataset.id,
+          name: this.dataset.name,
+          price: parseFloat(this.dataset.price),
+          sub: this.dataset.sub,
+          img: this.dataset.img,
+          qty: 1
+        });
+        
+        saveCart(cart); 
+        updateNavCount();
+        
+        // Trigger the toast
+        showToast(this.dataset.name);
+
+        // Button visual feedback
+        this.innerHTML = '<i class="fa-solid fa-check"></i> Added!'; 
+        this.style.background = '#7A8C6E';
+        this.style.color = '#fff';
+        this.style.borderColor = '#7A8C6E';
+        
+        setTimeout(() => {
+          this.innerHTML = '<i class="fa-solid fa-cart-plus"></i> Add to Cart';
+          this.style.background = '';
+          this.style.color = '';
+          this.style.borderColor = '';
+        }, 1500);
+      });
+    });
+
+    // --- UI LOGIC ---
+    document.getElementById('hamburger').addEventListener('click', function () {
+      const nav = document.getElementById('navLinks'); 
+      nav.classList.toggle('open');
+      this.setAttribute('aria-expanded', nav.classList.contains('open'));
+    });
+    
+    const obs = new IntersectionObserver(e => e.forEach(x => {
+      if(x.isIntersecting) x.target.classList.add('visible');
+    }), {threshold: 0.1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

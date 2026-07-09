@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Special Offers &amp; Subscriptions – Bean Boutique</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="homepage.html" class="navbar__logo">Bean <span>Boutique</span></a>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navbar__links" id="navLinks" role="menubar">
+      <li><a href="homepage.html"      role="menuitem"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="coffee.html"        role="menuitem"><i class="fa-solid fa-mug-hot"></i> Coffee</a></li>
+      <li><a href="equipment.html"     role="menuitem"><i class="fa-solid fa-sliders"></i> Equipment</a></li>
+      <li><a href="events.html"        role="menuitem"><i class="fa-solid fa-calendar-days"></i> Events</a></li>
+      <li><a href="specialoffers.html" class="active" role="menuitem"><i class="fa-solid fa-tags"></i> Offers</a></li>
+      <li><a href="shoppingcart.html"  role="menuitem"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+    </ul>
+    <a href="shoppingcart.html" class="navbar__cart-btn">
+      <i class="fa-solid fa-cart-shopping"></i> Cart (<span id="navCartCount">0</span>)
+    </a>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <header class="page-hero" role="banner">
+    <img src="Images/special offer.jpg"
+         alt="Coffee bags and offers" class="page-hero__bg" aria-hidden="true" 
+         style="object-position: center 80%;"/>
+    <span class="section__label"><i class="fa-solid fa-tags"></i> Save More, Brew More</span>
+    <h1>Special Offers &amp; Subscriptions</h1>
+    <p>Exclusive deals, seasonal promotions, and regular-delivery plans that keep great coffee on your doorstep.</p>
+  </header>
+
+  <!-- ===== CURRENT PROMOTIONS ===== -->
+  <section class="section section--cream" aria-labelledby="offersHeading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label"><i class="fa-solid fa-fire-flame-curved"></i> Limited Time</span>
+        <h2 id="offersHeading">Current Promotions</h2>
+        <p>These deals change monthly — don't miss out.</p>
+      </div>
+
+      <!-- MAIN BANNER -->
+      <div class="offer-banner reveal" role="region" aria-label="Summer sale offer">
+        <img src="Images/welcome discount.jpg"
+             alt="Coffee beans summer offer" class="offer-banner__img" aria-hidden="true" style="object-position: center 30%;"/>
+        <div class="offer-banner__content">
+          <p style="font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(247,239,229,0.6);margin-bottom:0.5rem;">
+            <i class="fa-solid fa-sun"></i> Summer Sale · Ends July 31
+          </p>
+          <h2 style="color:#F7EFE5;font-size:2rem;">
+            <i class="fa-solid fa-percent"></i> 20% Off All Orders Over £30
+          </h2>
+          <p style="color:rgba(247,239,229,0.75);margin:0.5rem 0 0.25rem;">Use code at checkout:</p>
+          <div class="offer-banner__code">SUMMER20</div>
+          <p style="font-size:0.85rem;color:rgba(247,239,229,0.55);margin-top:0.5rem;">
+            Cannot be combined with other offers. Valid on single orders only.
+          </p>
+          <a href="shoppingcart.html" class="btn btn--primary" style="margin-top:1rem;">
+            <i class="fa-solid fa-cart-shopping"></i> Shop Now
+          </a>
+        </div>
+      </div>
+
+      <!-- 3 smaller offer cards with real images -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:1.5rem;">
+
+        <div class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/First order discount card.png"
+                 alt="Welcome first order discount coffee" loading="lazy"  />
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-hand-wave"></i> New Customer</span>
+            <h3>First Order Discount</h3>
+            <p>Sign up to our newsletter and receive 15% off your very first order — no minimum spend.</p>
+            <div class="offer-banner__code" style="font-size:0.95rem;padding:0.3rem 1rem;margin:1rem 0 0;display:inline-block;background:rgba(200,133,42,0.12);border:2px dashed #C8852A;border-radius:6px;color:#C8852A;font-family:'Courier New',monospace;font-weight:700;letter-spacing:0.15em;">WELCOME15</div>
+          </div>
+          <div class="card__footer">
+            <a href="shoppingcart.html" class="btn btn--primary btn--sm">
+              <i class="fa-solid fa-ticket"></i> Use Code
+            </a>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/Starter brew kit card.png"
+                 alt="Starter brew kit bundle" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-box-open"></i> Bundle Deal</span>
+            <h3>Starter Brew Kit</h3>
+            <p>Hario V60 + 500g of your choice of coffee + filters. Everything you need to start brewing at home.</p>
+            <p class="card__price" style="margin-top:0.75rem;">
+              £49.00
+              <small style="font-size:0.75rem;font-weight:400;color:#A0714F;text-decoration:line-through;margin-left:0.4rem;">£62.50</small>
+            </p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary btn--sm add-to-cart-btn"
+              data-id="kit" data-name="Starter Brew Kit" data-price="49.00"
+              data-sub="V60 + 500g Coffee + Filters"
+              data-img="Images/Starter brew kit card.png">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card__img-wrap">
+            <img src="Images/triple bag discount.png"
+                 alt="Bulk bag coffee discount" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <span class="card__tag"><i class="fa-solid fa-layer-group"></i> Bulk Buy</span>
+            <h3>Triple Bag Discount</h3>
+            <p>Buy any 3 bags of the same coffee and get the cheapest one free. Auto-applied at checkout.</p>
+            <p class="card__price" style="margin-top:0.75rem;font-size:1rem;color:#7A8C6E;">
+              <i class="fa-solid fa-circle-check" style="color:#7A8C6E;"></i> Auto-applied at checkout
+            </p>
+          </div>
+          <div class="card__footer">
+            <a href="coffee.html" class="btn btn--primary btn--sm">
+              <i class="fa-solid fa-mug-hot"></i> Browse Coffees
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== COUNTDOWN TIMER ===== -->
+      <div style="text-align:center;margin-top:3rem;padding:2.5rem 2rem;background:var(--espresso);border-radius:14px;color:var(--cream);" role="region" aria-label="Offer countdown timer">
+        <p style="font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--caramel);margin-bottom:1rem;">
+          <i class="fa-solid fa-hourglass-half"></i> Summer Sale Ends In
+        </p>
+        <div style="display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;" role="timer" aria-label="Countdown to end of summer sale">
+          <div style="text-align:center;">
+            <p style="font-size:2.8rem;font-weight:900;color:var(--caramel);font-family:'Playfair Display',serif;line-height:1;" id="timerDays">00</p>
+            <p style="font-size:0.75rem;color:rgba(247,239,229,0.55);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem;"><i class="fa-regular fa-calendar"></i> Days</p>
+          </div>
+          <div style="text-align:center;">
+            <p style="font-size:2.8rem;font-weight:900;color:var(--caramel);font-family:'Playfair Display',serif;line-height:1;" id="timerHours">00</p>
+            <p style="font-size:0.75rem;color:rgba(247,239,229,0.55);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem;"><i class="fa-regular fa-clock"></i> Hours</p>
+          </div>
+          <div style="text-align:center;">
+            <p style="font-size:2.8rem;font-weight:900;color:var(--caramel);font-family:'Playfair Display',serif;line-height:1;" id="timerMins">00</p>
+            <p style="font-size:0.75rem;color:rgba(247,239,229,0.55);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem;"><i class="fa-solid fa-stopwatch"></i> Mins</p>
+          </div>
+          <div style="text-align:center;">
+            <p style="font-size:2.8rem;font-weight:900;color:var(--caramel);font-family:'Playfair Display',serif;line-height:1;" id="timerSecs">00</p>
+            <p style="font-size:0.75rem;color:rgba(247,239,229,0.55);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem;"><i class="fa-solid fa-bolt"></i> Secs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SUBSCRIPTION PLANS ===== -->
+  <section class="section section--offwhite" aria-labelledby="subsHeading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label"><i class="fa-solid fa-rotate"></i> Never Run Out</span>
+        <h2 id="subsHeading">Coffee Subscriptions</h2>
+        <p>Choose your roast, set your frequency, and receive freshly roasted coffee straight to your door. Pause or cancel any time — no questions asked.</p>
+      </div>
+
+      <!-- Visual subscription image strip -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-bottom:3rem;border-radius:14px;overflow:hidden;" aria-hidden="true">
+        <img src="Images/strip 1.jpg" alt="" style="width:100%;height:160px;object-fit:cover;object-position:center 60%;" />
+        <img src="Images/strip 2.jpg" alt="" style="width:100%;height:160px;object-fit:cover;object-position:center 50%;" />
+        <img src="Images/strip 3.jpg" alt="" style="width:100%;height:160px;object-fit:cover;object-position:center 50%;" />
+      </div>
+
+      <div class="plans" role="list">
+
+        <!-- Essentials -->
+        <div class="plan reveal" role="listitem">
+          <div class="plan__icon"><i class="fa-solid fa-seedling"></i></div>
+          <p class="plan__name">Essentials</p>
+          <p style="font-size:0.9rem;color:#A0714F;">Perfect for the occasional coffee drinker</p>
+          <p class="plan__price"><sup>£</sup>9<small style="font-size:1rem;">.99</small></p>
+          <p class="plan__period">per delivery · fortnightly or monthly</p>
+          <ul class="plan__list" aria-label="Essentials plan features">
+            <li><i class="fa-solid fa-check"></i> 250g of your chosen blend</li>
+            <li><i class="fa-solid fa-check"></i> Choose: whole bean or ground</li>
+            <li><i class="fa-solid fa-check"></i> Free delivery on all orders</li>
+            <li><i class="fa-solid fa-check"></i> Skip or pause at any time</li>
+            <li><i class="fa-solid fa-check"></i> 10% off in-store purchases</li>
+          </ul>
+          <a href="shoppingcart.html" class="btn btn--primary btn--full">
+            <i class="fa-solid fa-cart-plus"></i> Choose Essentials
+          </a>
+        </div>
+
+        <!-- Connoisseur (featured) -->
+        <div class="plan plan--featured reveal" role="listitem">
+          <div class="plan__badge"><i class="fa-solid fa-star"></i> Most Popular</div>
+          <div class="plan__icon"><i class="fa-solid fa-mug-hot"></i></div>
+          <p class="plan__name">Connoisseur</p>
+          <p style="font-size:0.9rem;color:rgba(247,239,229,0.6);">For the serious home brewer</p>
+          <p class="plan__price"><sup>£</sup>19<small style="font-size:1rem;">.99</small></p>
+          <p class="plan__period">per delivery · weekly, fortnightly, or monthly</p>
+          <ul class="plan__list" aria-label="Connoisseur plan features">
+            <li><i class="fa-solid fa-check"></i> 500g of any two coffees</li>
+            <li><i class="fa-solid fa-check"></i> Roaster's choice seasonal inclusion</li>
+            <li><i class="fa-solid fa-check"></i> Tasting notes card with each box</li>
+            <li><i class="fa-solid fa-check"></i> 15% off all shop purchases</li>
+            <li><i class="fa-solid fa-check"></i> Free Events &amp; Workshops access</li>
+            <li><i class="fa-solid fa-check"></i> Priority access to limited releases</li>
+          </ul>
+          <a href="shoppingcart.html" class="btn btn--primary btn--full">
+            <i class="fa-solid fa-cart-plus"></i> Choose Connoisseur
+          </a>
+        </div>
+
+        <!-- Roaster's Reserve -->
+        <div class="plan reveal" role="listitem">
+          <div class="plan__icon"><i class="fa-solid fa-trophy"></i></div>
+          <p class="plan__name">Roaster's Reserve</p>
+          <p style="font-size:0.9rem;color:#A0714F;">The full Bean Boutique experience</p>
+          <p class="plan__price"><sup>£</sup>34<small style="font-size:1rem;">.99</small></p>
+          <p class="plan__period">per delivery · weekly or fortnightly</p>
+          <ul class="plan__list" aria-label="Roaster's Reserve plan features">
+            <li><i class="fa-solid fa-check"></i> 1kg curated across 3 origins</li>
+            <li><i class="fa-solid fa-check"></i> Exclusive micro-lot coffees</li>
+            <li><i class="fa-solid fa-check"></i> Handwritten tasting diary</li>
+            <li><i class="fa-solid fa-check"></i> 20% off all in-store &amp; online purchases</li>
+            <li><i class="fa-solid fa-check"></i> One free Workshop ticket per quarter</li>
+            <li><i class="fa-solid fa-check"></i> Annual farm tour invitation</li>
+            <li><i class="fa-solid fa-check"></i> Direct line to our roasting team</li>
+          </ul>
+          <a href="shoppingcart.html" class="btn btn--primary btn--full">
+            <i class="fa-solid fa-cart-plus"></i> Choose Reserve
+          </a>
+        </div>
+
+      </div>
+
+      <!-- ===== FAQ ACCORDION ===== -->
+      <div style="margin-top:3.5rem;max-width:700px;margin-left:auto;margin-right:auto;">
+        <h3 style="text-align:center;margin-bottom:1.5rem;font-family:'Playfair Display',serif;">
+          <i class="fa-solid fa-circle-question" style="color:#C8852A;"></i> Subscription FAQs
+        </h3>
+        <div id="faqList" role="list">
+
+          <div class="faq-item reveal" role="listitem" style="background:#fff;border-radius:10px;border:1px solid #E5D5C5;margin-bottom:0.75rem;overflow:hidden;">
+            <button class="faq-q" aria-expanded="false" style="width:100%;text-align:left;padding:1rem 1.25rem;background:none;border:none;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;color:#1C0F0A;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;">
+              <span><i class="fa-solid fa-mug-hot" style="color:#C8852A;margin-right:0.5rem;"></i> Can I choose my own coffees?</span>
+              <i class="faq-icon fa-solid fa-plus" style="color:#C8852A;flex-shrink:0;transition:transform 0.3s;"></i>
+            </button>
+            <div class="faq-a" style="display:none;padding:0 1.25rem 1rem;font-size:0.92rem;color:#5C3D2E;">
+              Yes — on all plans you can select any coffees from our catalogue including single-origins, blends, and decaf. You can change your selection before each delivery from your account dashboard.
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem" style="background:#fff;border-radius:10px;border:1px solid #E5D5C5;margin-bottom:0.75rem;overflow:hidden;">
+            <button class="faq-q" aria-expanded="false" style="width:100%;text-align:left;padding:1rem 1.25rem;background:none;border:none;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;color:#1C0F0A;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;">
+              <span><i class="fa-solid fa-pause" style="color:#C8852A;margin-right:0.5rem;"></i> How do I pause or cancel?</span>
+              <i class="faq-icon fa-solid fa-plus" style="color:#C8852A;flex-shrink:0;transition:transform 0.3s;"></i>
+            </button>
+            <div class="faq-a" style="display:none;padding:0 1.25rem 1rem;font-size:0.92rem;color:#5C3D2E;">
+              You can pause, skip, or cancel from your account at any time — no fees, no minimum term. Just log in, go to Subscription Settings, and make your change before the next billing date.
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem" style="background:#fff;border-radius:10px;border:1px solid #E5D5C5;margin-bottom:0.75rem;overflow:hidden;">
+            <button class="faq-q" aria-expanded="false" style="width:100%;text-align:left;padding:1rem 1.25rem;background:none;border:none;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;color:#1C0F0A;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;">
+              <span><i class="fa-solid fa-fire" style="color:#C8852A;margin-right:0.5rem;"></i> When is my coffee roasted?</span>
+              <i class="faq-icon fa-solid fa-plus" style="color:#C8852A;flex-shrink:0;transition:transform 0.3s;"></i>
+            </button>
+            <div class="faq-a" style="display:none;padding:0 1.25rem 1rem;font-size:0.92rem;color:#5C3D2E;">
+              Every bag is roasted to order in our London roastery within 48 hours of dispatch, so you always receive coffee at its peak freshness.
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem" style="background:#fff;border-radius:10px;border:1px solid #E5D5C5;margin-bottom:0.75rem;overflow:hidden;">
+            <button class="faq-q" aria-expanded="false" style="width:100%;text-align:left;padding:1rem 1.25rem;background:none;border:none;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;color:#1C0F0A;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;">
+              <span><i class="fa-solid fa-gift" style="color:#C8852A;margin-right:0.5rem;"></i> Can I give a subscription as a gift?</span>
+              <i class="faq-icon fa-solid fa-plus" style="color:#C8852A;flex-shrink:0;transition:transform 0.3s;"></i>
+            </button>
+            <div class="faq-a" style="display:none;padding:0 1.25rem 1rem;font-size:0.92rem;color:#5C3D2E;">
+              Absolutely — we offer 1, 3, 6, and 12-month gift subscriptions. The recipient can choose their own coffees. Contact us at <a href="mailto:hello@beanboutique.co.uk" style="color:#C8852A;">hello@beanboutique.co.uk</a> to set one up.
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem" style="background:#fff;border-radius:10px;border:1px solid #E5D5C5;margin-bottom:0.75rem;overflow:hidden;">
+            <button class="faq-q" aria-expanded="false" style="width:100%;text-align:left;padding:1rem 1.25rem;background:none;border:none;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;color:#1C0F0A;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;">
+              <span><i class="fa-solid fa-truck" style="color:#C8852A;margin-right:0.5rem;"></i> How quickly is my order delivered?</span>
+              <i class="faq-icon fa-solid fa-plus" style="color:#C8852A;flex-shrink:0;transition:transform 0.3s;"></i>
+            </button>
+            <div class="faq-a" style="display:none;padding:0 1.25rem 1rem;font-size:0.92rem;color:#5C3D2E;">
+              Orders are dispatched within 48 hours of roasting. Standard UK delivery takes 2–3 working days. Express next-day delivery is available for an additional £2.99.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand-name">Bean Boutique</p>
+        <p class="footer__tagline">Artisan coffee roasted with care in the heart of Myanmar.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="footer__social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="footer__social-link" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer__col"><h5>Shop</h5><ul>
+        <li><a href="coffee.html"><i class="fa-solid fa-mug-hot"></i> Coffee Selection</a></li>
+        <li><a href="equipment.html"><i class="fa-solid fa-sliders"></i> Equipment</a></li>
+        <li><a href="specialoffers.html"><i class="fa-solid fa-tags"></i> Special Offers</a></li>
+        <li><a href="shoppingcart.html"><i class="fa-solid fa-cart-shopping"></i> Your Cart</a></li>
+      </ul></div>
+      <div class="footer__col"><h5>Learn</h5><ul>
+        <li><a href="events.html"><i class="fa-solid fa-calendar-days"></i> Events</a></li>
+        <li><a href="#"><i class="fa-solid fa-book-open"></i> Brewing Guides</a></li>
+        <li><a href="#"><i class="fa-solid fa-industry"></i> Our Roastery</a></li>
+      </ul></div>
+      <div class="footer__col"><h5>Company</h5><ul>
+        <li><a href="#"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+        <li><a href="#"><i class="fa-solid fa-leaf"></i> Sustainability</a></li>
+        <li><a href="#"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        <li><a href="#"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a></li>
+      </ul></div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 Bean Boutique Ltd. All rights reserved.</p>
+      <p>Based in Mandalay, Myanmar.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ---- localStorage cart helpers ---- */
+    function getCart()      { try { return JSON.parse(localStorage.getItem('bb_cart')) || []; } catch(e) { return []; } }
+    function saveCart(cart) { localStorage.setItem('bb_cart', JSON.stringify(cart)); }
+    function updateNavCount() {
+      const el = document.getElementById('navCartCount');
+      if (el) el.textContent = getCart().reduce((s, i) => s + i.qty, 0);
+    }
+    updateNavCount();
+
+    /* ---- Add to cart buttons ---- */
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const cart = getCart();
+        const ex   = cart.find(i => i.id === this.dataset.id);
+        if (ex) ex.qty++;
+        else cart.push({ id: this.dataset.id, name: this.dataset.name, price: parseFloat(this.dataset.price), sub: this.dataset.sub, img: this.dataset.img, qty: 1 });
+        saveCart(cart); updateNavCount();
+        this.innerHTML = '<i class="fa-solid fa-check"></i> Added!';
+        this.style.background = '#7A8C6E';
+        setTimeout(() => { this.innerHTML = '<i class="fa-solid fa-cart-plus"></i> Add to Cart'; this.style.background = ''; }, 1500);
+      });
+    });
+
+    /* ---- Hamburger ---- */
+    document.getElementById('hamburger').addEventListener('click', function () {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('open');
+      this.setAttribute('aria-expanded', nav.classList.contains('open'));
+    });
+
+    /* ---- Countdown timer to July 31 2026 ---- */
+    const endDate = new Date('2026-07-31T23:59:59');
+    function updateTimer() {
+      const diff = endDate - new Date();
+      if (diff <= 0) {
+        ['timerDays','timerHours','timerMins','timerSecs'].forEach(id => document.getElementById(id).textContent = '00');
+        return;
+      }
+      document.getElementById('timerDays').textContent  = String(Math.floor(diff / 86400000)).padStart(2,'0');
+      document.getElementById('timerHours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+      document.getElementById('timerMins').textContent  = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+      document.getElementById('timerSecs').textContent  = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
+    }
+    updateTimer();
+    setInterval(updateTimer, 1000);
+
+    /* ---- FAQ accordion ---- */
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const answer   = this.nextElementSibling;
+        const icon     = this.querySelector('.faq-icon');
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        answer.style.display = expanded ? 'none' : 'block';
+        icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(45deg)';
+        this.setAttribute('aria-expanded', !expanded);
+      });
+    });
+
+    /* ---- Scroll reveal ---- */
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bean Boutique – Artisan Coffee Shop</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" aria-label="Main navigation">
+    <a href="homepage.html" class="navbar__logo">Bean <span>Boutique</span></a>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navbar__links" id="navLinks">
+      <li><a href="homepage.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="coffee.html"><i class="fa-solid fa-mug-hot"></i> Coffee</a></li>
+      <li><a href="equipment.html"><i class="fa-solid fa-blender"></i> Equipment</a></li>
+      <li><a href="events.html"><i class="fa-solid fa-calendar-days"></i> Events</a></li>
+      <li><a href="specialoffers.html"><i class="fa-solid fa-tags"></i> Offers</a></li>
+      <li><a href="shoppingcart.html"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+    </ul>
+   <a href="shoppingcart.html" class="navbar__cart-btn">
+      <i class="fa-solid fa-cart-shopping"></i> Cart (<span id="navCartCount">0</span>)
+    </a>
+  </nav>
+
+  <!-- HERO BANNER -->
+  <header class="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__content">
+      <span class="hero__eyebrow">Artisan · Single Origin · Freshly Roasted</span>
+      <h1 class="hero__headline">Coffee Worth Waking Up For</h1>
+      <p class="hero__tagline">Where every cup tells a story.</p>
+      <a href="coffee.html" class="hero__cta">Explore Our Blends</a>
+    </div>
+  </header>
+
+  <!-- FEATURES SECTION -->
+  <section class="section section--offwhite" aria-labelledby="featHeading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Why Bean Boutique</span>
+        <h2 id="featHeading">More Than a Cup of Coffee</h2>
+        <p>From farm to your favourite mug — we obsess over every step so you don't have to.</p>
+      </div>
+      <div class="features">
+        <div class="feature reveal">
+          <i class="fa-solid fa-seedling"></i>
+          <h3>Ethically Sourced</h3>
+          <p>Direct-trade relationships with farmers across Ethiopia, Colombia, and Guatemala.</p>
+        </div>
+        <div class="feature reveal">
+          <i class="fa-solid fa-fire"></i>
+          <h3>Small-Batch Roasted</h3>
+          <p>Roasted weekly in our neighbourhood roastery for peak freshness in every bag.</p>
+        </div>
+        <div class="feature reveal">
+          <i class="fa-solid fa-box"></i>
+          <h3>Subscription Delivery</h3>
+          <p>Never run out. Choose your roast, set your schedule, and let us do the rest.</p>
+        </div>
+        <div class="feature reveal">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <h3>Barista Workshops</h3>
+          <p>Monthly brewing classes for all skill levels — from V60 novice to latte art pro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO SLIDESHOW: Lifestyle Scenes -->
+  <section class="slideshow" aria-label="Featured products and events">
+    <div class="slideshow__track" id="slideshowTrack">
+
+      <!-- Slide 1: Cafe atmosphere lifestyle -->
+      <div class="slideshow__slide" style="background-image:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Images/shan\ state\ coffee.jpg');">
+        <div class="slideshow__slide-content">
+          <h3>Ywangan Coffee</h3>
+          <p>Bright, Floral, and bursting with Citrus and Caramel Sweetness notes. Our best-seller.</p>
+          <a href="coffee.html" class="btn btn--outline-light mt-1">Shop Now</a>
+        </div>
+      </div>
+
+      <!-- Slide 2: Barista lifestyle workspace -->
+      <div class="slideshow__slide" style="background-image:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Images/Brewing\ class.jpg');">
+        <div class="slideshow__slide-content">
+          <h3>Brewing Masterclass — July 20</h3>
+          <p>Learn the art of pour-over with our head roaster, James.</p>
+          <a href="events.html" class="btn btn--outline-light mt-1">Register Now</a>
+        </div>
+      </div>
+
+      <!-- Slide 3: Friends sharing a moment at a table -->
+      <div class="slideshow__slide" style="background-image:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Images/summer\ sales.jpg');">
+        <div class="slideshow__slide-content">
+          <h3>Summer Discount — 20% Off</h3>
+          <p>Use code <strong>SUMMER20</strong> on orders over £30 this month only.</p>
+          <a href="specialoffers.html" class="btn btn--outline-light mt-1">View Offers</a>
+        </div>
+      </div>
+
+    </div>
+    <button class="slideshow__btn slideshow__btn--prev" id="slidePrev" aria-label="Previous slide">&#8249;</button>
+    <button class="slideshow__btn slideshow__btn--next" id="slideNext" aria-label="Next slide">&#8250;</button>
+    
+    <div class="slideshow__dots" id="slideDots">
+      <button class="slideshow__dot active" aria-label="Slide 1"></button>
+      <button class="slideshow__dot" aria-label="Slide 2"></button>
+      <button class="slideshow__dot" aria-label="Slide 3"></button>
+    </div>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <section class="section section--cream" aria-labelledby="coffeeHeading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Featured Coffees</span>
+        <h2 id="coffeeHeading">Current Favourites</h2>
+        <p>A rotating selection of our finest single-origins and signature blends.</p>
+      </div>
+      <div class="card-grid">
+
+        <!-- Card 1: Lifestyle coffee table experience -->
+        <article class="card reveal">
+          <div class="card__img-placeholder" style="background: none; padding: 0; height: 200px; overflow: hidden;">
+            <img src="Images/shan%20state%20coffee.jpg"
+                 alt="Coffee mug and journal sitting on a rustic cafe table" 
+                 style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Single Origin</span>
+            <h3>Shan State Ywangan</h3>
+            <p>Delicate and floral, with notes of Brown sugar, Citrus and Caramel Sweetness notes.</p>
+            <div class="tasting-notes">
+              <span class="tasting-note">Orange Blossom</span>
+              <span class="tasting-note">Milk Chocolate</span>
+              <span class="tasting-note">Black Tea</span>
+            </div>
+            <p class="card__price">£12.50 <small style="font-size:0.7rem;font-weight:400;color:#A0714F;">/ 250g</small></p>
+          </div>
+          <div class="card__footer">
+            <a href="coffee.html" class="btn btn--outline btn--sm">View Details</a>
+            <button class="btn btn--primary btn--sm add-to-cart-btn" data-id="shan-ywangan" data-name="Shan State Ywangan" data-price="12.50" data-sub="250g · Single Origin" data-img="Images/shan state coffee.jpg">Add to Cart</button>
+          </div>
+        </article>
+
+        <!-- Card 2: Barista pouring milk/crafting art -->
+        <article class="card reveal">
+          <div class="card__img-placeholder" style="background: none; padding: 0; height: 200px; overflow: hidden;">
+            <img src="Images/Signature%20Espresso%20Blend.jpg"
+                 alt="Candid lifestyle shot of a barista steaming milk behind a busy counter" 
+                 style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Blend</span>
+            <h3>Espresso Blend</h3>
+            <p>Rich, bold, and smooth with dark chocolate, caramel, and a whisper of hazelnut.</p>
+            <div class="tasting-notes">
+              <span class="tasting-note">Dark Chocolate</span>
+              <span class="tasting-note">Caramel</span>
+              <span class="tasting-note">Hazelnut</span>
+            </div>
+            <p class="card__price">£10.99 <small style="font-size:0.7rem;font-weight:400;color:#A0714F;">/ 250g</small></p>
+          </div>
+          <div class="card__footer">
+            <a href="coffee.html" class="btn btn--outline btn--sm">View Details</a>
+            <button class="btn btn--primary btn--sm add-to-cart-btn" data-id="espresso" data-name="Espresso Blend" data-price="10.99" data-sub="250g · House Blend" data-img="Images/Signature Espresso Blend.jpg">Add to Cart</button>
+          </div>
+        </article>
+
+        <!-- Card 3: Sunny cafe corner ambiance -->
+        <article class="card reveal">
+          <div class="card__img-placeholder" style="background: none; padding: 0; height: 200px; overflow: hidden;">
+            <img src="Images/Colombian%20Huila.jpg"
+                 alt="Cozy ambient coffee shop counter with plants and warm lighting" 
+                 style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Single Origin</span>
+            <h3>Colombian Huila</h3>
+            <p>Sweet, balanced, and approachable — red apple, brown sugar, and toasted almond.</p>
+            <div class="tasting-notes">
+              <span class="tasting-note">Apple</span>
+              <span class="tasting-note">Brown Sugar</span>
+              <span class="tasting-note">Almond</span>
+            </div>
+            <p class="card__price">£11.75 <small style="font-size:0.7rem;font-weight:400;color:#A0714F;">/ 250g</small></p>
+          </div>
+          <div class="card__footer">
+            <a href="coffee.html" class="btn btn--outline btn--sm">View Details</a>
+           <button class="btn btn--primary btn--sm add-to-cart-btn" data-id="col-huila" data-name="Colombian Huila" data-price="11.75" data-sub="250g · Single Origin" data-img="Images/Colombian Huila.jpg">Add to Cart</button>
+          </div>
+        </article>
+
+      </div>
+      <div class="text-center mt-2">
+        <a href="coffee.html" class="btn btn--outline">View Full Coffee Catalogue</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL FEED -->
+  <section class="section section--dark" aria-labelledby="socialHeading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Community</span>
+        <h2 id="socialHeading">Follow Us @BeanBoutique</h2>
+        <p>Tag #BeanBoutique for a chance to be featured here.</p>
+      </div>
+      <div class="social-feed">
+
+        <!-- Card 1 -->
+        <div class="social-post reveal">
+          <div class="social-post__img-wrap">
+            <img src="Images/person%20reading%20cafe.jpg" 
+                 alt="Person reading a book at a sunny cafe table" 
+                 style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="social-post__body">
+            <p class="social-post__handle">@BeanBoutique</p>
+            <p class="social-post__text">Morning rituals hit different with our Shan State Ywangan. ☀️ #specialty</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="social-post reveal">
+          <div class="social-post__img-wrap">
+            <img src="Images/coffee%20roasting.jpg" 
+                 alt="Friendly barista working behind a rustic coffee shop counter" 
+                 style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="social-post__body">
+            <p class="social-post__handle">@BeanBoutique</p>
+            <p class="social-post__text">New batch of Colombian Huila just off the roaster. Smells incredible. 🌿</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="social-post reveal">
+          <div class="social-post__img-wrap">
+            <img src="Images/workshop%20class.jpg" 
+                 alt="Group of friends talking and laughing around a workshop table" 
+                 style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="social-post__body">
+            <p class="social-post__handle">@BeanBoutique</p>
+            <p class="social-post__text">Last month's brew class — 12 students, 12 perfect V60s. Proud! ☕</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="social-post reveal">
+          <div class="social-post__img-wrap">
+            <img src="Images/coffee%20farm.jpg" 
+                 alt="Traveler exploring scenic nature environments" 
+                 style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="social-post__body">
+            <p class="social-post__handle">@BeanBoutique</p>
+            <p class="social-post__text">Visiting our farm partners in Ethiopia next month. Stay tuned!</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP & LOCATION SECTION -->
+  <section class="section section--cream" aria-labelledby="locationHeading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Find Us</span>
+        <h2 id="locationHeading">Come Visit the Shop</h2>
+        <p>No. 146, 37th Street (Between 79th &amp; 80th Street), Maha Aung Mye Township, Mandalay &mdash; Open Daily 8:00am–9:00pm</p>
+      </div>
+      <div class="map-container">
+        <iframe
+          title="Bean Boutique Mandalay location map"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=96.0820%2C21.9630%2C96.0960%2C21.9730&layer=mapnik&marker=21.9682%2C96.0891"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      
+      <div class="footer__col">
+        <div class="footer__brand-name">Bean <span>Boutique</span></div>
+        <p class="footer__tagline">Artisan coffee shop and roastery. Crafted with passion, roasted with precision.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Twitter">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="coffee.html">Coffee Selection</a></li>
+          <li><a href="equipment.html">Brewing Equipment</a></li>
+          <li><a href="specialoffers.html">Special Offers</a></li>
+          <li><a href="shoppingcart.html">Your Cart</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Learn</h3>
+        <ul>
+          <li><a href="events.html">Events &amp; Workshops</a></li>
+          <li><a href="#">Brewing Guides</a></li>
+          <li><a href="#">Our Roastery</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 Bean Boutique Ltd. All rights reserved.</p>
+      <p>Mandalay Artisan Coffee Collective.</p>
+    </div>
+  </footer>
+    
+  <!-- SCROLL-TRIGGERED GLASS PROMO -->
+  <div class="scroll-promo-glass" id="scrollPromo">
+    <button class="scroll-promo__close" id="closeScrollPromo" aria-label="Close promo">&times;</button>
+    <div class="promo-glass__icon"><i class="fa-solid fa-gift"></i></div>
+    <div class="promo-glass__text">
+      <p class="promo-glass__title">Welcome Offer</p>
+      <p class="promo-glass__desc">Use code <strong>BEANS15</strong> for 15% off.</p>
+    </div>
+  </div>
+
+  <!-- LOGIC SCRIPT -->
+  <script>
+
+    const scrollPromo = document.getElementById('scrollPromo');
+    const closeScrollPromo = document.getElementById('closeScrollPromo');
+    
+    if (!sessionStorage.getItem('promoDismissed')) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 350) {
+          scrollPromo.classList.add('show');
+        } else {
+          scrollPromo.classList.remove('show');
+        }
+      });
+    }
+    
+    closeScrollPromo.addEventListener('click', function() {
+      scrollPromo.classList.remove('show');
+      sessionStorage.setItem('promoDismissed', 'true');
+    });
+     
+    // --- Hamburger menu ---
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', function () {
+      navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+    });
+
+    // --- Slideshow ---
+    const track = document.getElementById('slideshowTrack');
+    const dots = document.querySelectorAll('.slideshow__dot');
+    let current = 0;
+    const total = dots.length;
+
+    function goToSlide(n) {
+      current = (n + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach((d, i) => {
+        const isActive = i === current;
+        d.classList.toggle('active', isActive);
+        d.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+    }
+
+    document.getElementById('slideNext').addEventListener('click', () => goToSlide(current + 1));
+    document.getElementById('slidePrev').addEventListener('click', () => goToSlide(current - 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => goToSlide(i)));
+
+    setInterval(() => goToSlide(current + 1), 5000);
+
+    // --- Scroll reveal ---
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // --- CART & TOAST LOGIC (Added) ---
+    function getCart() { 
+      try { return JSON.parse(localStorage.getItem('bb_cart')) || []; } 
+      catch(e) { return []; } 
+    }
+    
+    function saveCart(c) { 
+      localStorage.setItem('bb_cart', JSON.stringify(c)); 
+    }
+    
+    function updateNavCount() { 
+      const el = document.getElementById('navCartCount'); 
+      if (el) el.textContent = getCart().reduce((s,i) => s + i.qty, 0); 
+    }
+
+    function showToast(productName) {
+      let toast = document.getElementById('cartToast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'cartToast';
+        toast.className = 'cart-toast';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${productName} added to cart!`;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    updateNavCount();
+    
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const cart = getCart(), ex = cart.find(i => i.id === this.dataset.id);
+        
+        if (ex) ex.qty++; 
+        else cart.push({
+          id: this.dataset.id,
+          name: this.dataset.name,
+          price: parseFloat(this.dataset.price),
+          sub: this.dataset.sub,
+          img: this.dataset.img,
+          qty: 1
+        });
+        
+        saveCart(cart); 
+        updateNavCount();
+        showToast(this.dataset.name);
+
+        const originalText = this.innerHTML;
+        this.innerHTML = '<i class="fa-solid fa-check"></i> Added!'; 
+        this.style.background = '#7A8C6E';
+        this.style.color = '#fff';
+        this.style.borderColor = '#7A8C6E';
+        
+        setTimeout(() => {
+          this.innerHTML = originalText;
+          this.style.background = '';
+          this.style.color = '';
+          this.style.borderColor = '';
+        }, 1500);
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coffee Selection – Bean Boutique</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="homepage.html" class="navbar__logo">Bean <span>Boutique</span></a>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navbar__links" id="navLinks" role="menubar">
+      <li><a href="homepage.html"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="coffee.html" class="active"><i class="fa-solid fa-mug-hot"></i> Coffee</a></li>
+      <li><a href="equipment.html"><i class="fa-solid fa-blender"></i> Equipment</a></li>
+      <li><a href="events.html"><i class="fa-solid fa-calendar-days"></i> Events</a></li>
+      <li><a href="specialoffers.html"><i class="fa-solid fa-tags"></i> Offers</a></li>
+      <li><a href="shoppingcart.html"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+    </ul>
+    <a href="shoppingcart.html" class="navbar__cart-btn">
+      <i class="fa-solid fa-cart-shopping"></i> Cart (<span id="navCartCount">0</span>)
+    </a>
+  </nav>
+
+  <header class="page-hero" role="banner">
+     <img src="Images/coffee banner.jpg" alt="Coffee selection" class="page-hero__bg" aria-hidden="true" style="object-position: center 80%;" />
+    <span class="section__label">Our Catalogue</span>
+    <h1>Coffee Selection</h1>
+    <p>Unique blends and single-origin coffees sourced from the world's finest growing regions.</p>
+  </header>
+
+  <section class="section section--offwhite" aria-label="Search and filter coffees">
+    <div class="container">
+      <div class="search-bar" role="search">
+        <input type="text" id="coffeeSearch" class="search-bar__input" placeholder="Search coffees..." aria-label="Search coffees" />
+        <button class="search-bar__btn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+
+      <div style="display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;" role="group" aria-label="Filter by type">
+        <button class="btn btn--primary btn--sm filter-btn active" data-filter="all">All</button>
+        <button class="btn btn--outline btn--sm filter-btn" data-filter="single-origin">Single Origin</button>
+        <button class="btn btn--outline btn--sm filter-btn" data-filter="blend">Blends</button>
+        <button class="btn btn--outline btn--sm filter-btn" data-filter="decaf">Decaf</button>
+        <button class="btn btn--outline btn--sm filter-btn" data-filter="seasonal">Seasonal</button>
+      </div>
+
+      <div class="card-grid" id="coffeeGrid">
+
+        <article class="card coffee-card reveal" data-type="single-origin" data-name="Ethiopian Yirgacheffe">
+          <img
+            src="Images/Yirgacheffe Natural.jpg"
+            alt="Yirgacheffe Natural"
+            class="card__img"
+          />
+          <div class="card__body">
+            <span class="card__tag">Single Origin · Ethiopia</span>
+            <h3>Yirgacheffe Natural</h3>
+            <p>Naturally processed on raised beds, this coffee delivers an intoxicating bouquet of blueberry jam, jasmine, and dark chocolate.</p>
+            <div class="tasting-notes">
+              <span class="tasting-note">Blueberry</span>
+              <span class="tasting-note">Jasmine</span>
+              <span class="tasting-note">Dark Chocolate</span>
+              <span class="tasting-note">Lemon Zest</span>
+            </div>
+            <p style="margin-top:0.6rem;font-size:0.82rem;color:#7A8C6E;font-weight:500;"> 
+              <i class="fa-solid fa-mug-hot"></i> Best brewed: Pour-over, Aeropress
+            </p>
+            <p class="card__price">£12.50 <small style="font-size:0.7rem;font-weight:400;color:#A0714F;">/ 250g</small></p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" 
+              data-id="eth-yirga" 
+              data-name="Yirgacheffe Natural" 
+              data-price="12.50" 
+              data-sub="250g · Single Origin" 
+              data-img="Images/Yirgacheffe Natural.jpg">
+              Add to Cart
+            </button>
+            <a href="specialoffers.html" class="btn btn--outline btn--sm">Subscribe</a>
+          </div>
+        </article>
+
+        <article class="card coffee-card reveal" data-type="blend" data-name="Espresso Blend">
+          <img
+            src="Images/Signature Espresso Blend.jpg"
+            alt="Espresso Blend"
+            class="card__img"
+          />
+          <div class="card__body">
+            <span class="card__tag">Blend · House</span>
+            <h3>Espresso Blend</h3>
+            <p>Our flagship blend: a marriage of Brazilian Santos and Guatemalan Antigua crafted for balance, body, and that perfect crema.</p>
+            <div class="tasting-notes">
+              <span class="tasting-note">Dark Chocolate</span>
+              <span class="tasting-note">Caramel</span>
+              <span class="tasting-note">Hazelnut</span>
+              <span class="tasting-note">Brown Sugar</span>
+            </div>
+            <p style="margin-top:0.6rem;font-size:0.82rem;color:#7A8C6E;font-weight:500;">
+               <i class="fa-solid fa-mug-hot"></i> Best brewed: Espresso, Moka pot
+              </p>
+            <p class="card__price">£10.99 <small style="font-size:0.7rem;font-weight:400;color:#A0714F;">/ 250g</small></p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" 
+              data-id="espresso" 
+              data-name="Espresso Blend" 
+              data-price="10.99" 
+              data-sub="250g · House Blend" 
+              data-img="Images/Signature Espresso Blend.jpg">
+              Add to Cart
+            </button>
+            <a href="specialoffers.html" class="btn btn--outline btn--sm">Subscribe</a>
+          </div>
+        </article>
+
+        <article class="card coffee-card reveal" data-type="single-origin" data-name="Colombian Huila">
+          <img
+            src="Images/Colombian Huila.jpg"
+            alt="Colombian Huila"
+            class="card__img"
+          />
+          <div class="card__body">
+            <span class="card__tag">Single Origin · Colombia</span>
+            <h3>Colombian Huila</h3>
+            <p>Grown at high altitude in the Huila department, this washed coffee is clean, sweet, and endlessly approachable.</p>
+            <div class="tasting-notes">
+              <span class="tasting-note">Red Apple</span>
+              <span class="tasting-note">Brown Sugar</span>
+              <span class="tasting-note">Almond</span>
+              <span class="tasting-note">Honey</span>
+            </div>
+            <p style="margin-top:0.6rem;font-size:0.82rem;color:#7A8C6E;font-weight:500;"><i class="fa-solid fa-mug-hot"></i> Best brewed: Filter, Cafetière</p>
+            <p class="card__price">£11.75 <small style="font-size:0.7rem;font-weight:400;color:#A0714F;">/ 250g</small></p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" 
+              data-id="col-huila" 
+              data-name="Colombian Huila" 
+              data-price="11.75" 
+              data-sub="250g · Single Origin" 
+              data-img="Images/Colombian Huila.jpg">
+              Add to Cart
+            </button>
+            <a href="specialoffers.html" class="btn btn--outline btn--sm">Subscribe</a>
+          </div>
+        </article>
+
+         <article class="card coffee-card reveal" data-type="blend" data-name="Caramel Roast">
+       <img
+            src="Images/Caramel Roast.jpg"
+            alt="Caramel Roast coffee bag"
+            class="card__img" style="object-position: center 50%;"
+          />
+          <div class="card__body">
+            <span class="card__tag">Flavoured · Medium Roast</span>
+            <h3>Caramel Roast</h3>
+            <p>Sweet, buttery caramel notes wrapped around a smooth medium roast — a café favourite at home.</p>
+            <div class="tasting-notes">
+              <span class="tasting-note">Caramel</span>
+              <span class="tasting-note">Buttery</span>
+              <span class="tasting-note">Smooth</span>
+            </div>
+            <p style="margin-top:1rem;font-size:0.82rem;color:#7A8C6E;font-weight:500;"><i class="fa-solid fa-mug-hot"></i> Best brewed: Drip, Latte</p>
+            <p class="card__price">£9.29 <small style="font-size:0.7rem;font-weight:400;color:#A0714F;">/ 250g</small></p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" 
+              data-id="caramel-roast" 
+              data-name="Caramel Roast" 
+              data-price="9.29" 
+              data-sub="250g · Flavoured" 
+              data-img="Images/Caramel Roast.jpg">
+              Add to Cart
+            </button>
+            <a href="specialoffers.html" class="btn btn--outline btn--sm">Subscribe</a>
+          </div>
+        </article>
+
+       <article class="card coffee-card reveal" data-type="decaf" data-name="Decaf Blend">
+          <img
+            src="Images/Decaf Blend.jpg"
+            alt="Decaf Blend coffee bag"
+            class="card__img" style="object-position: center 40%;"
+          />
+          <div class="card__body">
+            <span class="card__tag">Decaf · Medium Roast</span>
+            <h3>Decaf Blend</h3>
+            <p>All the flavour, none of the caffeine. A smooth, rounded cup you can enjoy any time of day or night.</p>
+            <div class="tasting-notes">
+              <span class="tasting-note">Smooth</span>
+              <span class="tasting-note">Mellow</span>
+              <span class="tasting-note">Chocolate</span>
+            </div>
+            <p style="margin-top:0.6rem;font-size:0.82rem;color:#7A8C6E;font-weight:500;"><i class="fa-solid fa-mug-hot"></i> Best brewed: Any method</p>
+            <p class="card__price">£8.99 <small style="font-size:0.7rem;font-weight:400;color:#A0714F;">/ 250g</small></p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" 
+              data-id="decaf-blend" 
+              data-name="Decaf Blend" 
+              data-price="8.99" 
+              data-sub="250g · Decaf" 
+              data-img="Images/Decaf Blend.jpg">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+            <a href="specialoffers.html" class="btn btn--outline btn--sm">Subscribe</a>
+          </div>
+        </article>
+
+        <article class="card coffee-card reveal" data-type="seasonal" data-name="Summer Limited Release">
+          <img
+            class="card__img"
+            src="Images/summer limited.jpg"
+            alt="Kenyan Summer Limited Coffee"
+          />
+          <div class="card__body">
+            <span class="card__tag">Seasonal · Limited Release</span>
+            <h3>Kenyan Summer Limited</h3>
+            <p>An extraordinary Kenyan AA available only in summer months. Intensely fruity and wine-like in its complexity.</p>
+            <div class="tasting-notes">
+              <span class="tasting-note">Blackcurrant</span>
+              <span class="tasting-note">Tomato</span>
+              <span class="tasting-note">Grapefruit</span>
+            </div>
+            <p style="margin-top:0.6rem;font-size:0.82rem;color:#7A8C6E;font-weight:500;"><i class="fa-solid fa-mug-hot"></i> Best brewed: Pour-over</p>
+            <p class="card__price">£15.99 <small style="font-size:0.7rem;font-weight:400;color:#A0714F;">/ 250g</small></p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" 
+              data-id="ken-summer" 
+              data-name="Kenyan Summer Limited" 
+              data-price="15.99" 
+              data-sub="250g · Seasonal" 
+              data-img="Images/summer limited.jpg">
+              Add to Cart
+            </button>
+            <a href="specialoffers.html" class="btn btn--outline btn--sm">Subscribe</a>
+          </div>
+        </article>
+
+        <article class="card coffee-card reveal" data-type="blend" data-name="Morning Ritual Blend">
+          <img
+            class="card__img"
+            src="Images/morning blend.jpg"
+            alt="Morning Ritual Blend"
+          />
+          <div class="card__body">
+            <span class="card__tag">Blend · Morning</span>
+            <h3>Morning Ritual Blend</h3>
+            <p>A medium-dark blend designed for that first cup of the day — bold, warming, and utterly reliable.</p>
+            <div class="tasting-notes">
+              <span class="tasting-note">Molasses</span>
+              <span class="tasting-note">Cedar</span>
+              <span class="tasting-note">Dried Fruit</span>
+            </div>
+            <p style="margin-top:0.6rem;font-size:0.82rem;color:#7A8C6E;font-weight:500;"><i class="fa-solid fa-mug-hot"></i> Best brewed: Espresso, Moka pot, Drip</p>
+            <p class="card__price">£9.99 <small style="font-size:0.7rem;font-weight:400;color:#A0714F;">/ 250g</small></p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" 
+              data-id="morning-ritual" 
+              data-name="Morning Ritual Blend" 
+              data-price="9.99" 
+              data-sub="250g · Blend" 
+              data-img="Images/morning blend.jpg">
+              Add to Cart
+            </button>
+            <a href="specialoffers.html" class="btn btn--outline btn--sm">Subscribe</a>
+          </div>
+        </article>
+
+        <article class="card coffee-card reveal" data-type="single-origin" data-name="Sumatra Mandheling">
+          <img
+            class="card__img"
+            src="Images/sumatra coffee.jpg"
+            alt="Sumatra Mandheling Coffee"
+          />
+          <div class="card__body">
+            <span class="card__tag">Single Origin · Indonesia</span>
+            <h3>Sumatra Mandheling</h3>
+            <p>Wet-hulled on the island of Sumatra, this coffee is earthy, full-bodied, and low in acidity — perfect for cold brew.</p>
+            <div class="tasting-notes">
+              <span class="tasting-note">Dark Earth</span>
+              <span class="tasting-note">Cedar</span>
+              <span class="tasting-note">Mushroom</span>
+              <span class="tasting-note">Tobacco</span>
+            </div>
+            <p style="margin-top: 0.6rem;font-size:0.82rem;color:#7A8C6E;font-weight:500;"><i class="fa-solid fa-mug-hot"></i> Best brewed: Cold brew, French press</p>
+            <p class="card__price">£12.00 <small style="font-size:0.7rem;font-weight:400;color:#A0714F;">/ 250g</small></p>
+          </div>
+          <div class="card__footer">
+              <button class="btn btn--primary add-to-cart-btn" 
+                data-id="sumatra-man" 
+                data-name="Sumatra Mandheling" 
+                data-price="12.00" 
+                data-sub="250g · Single Origin" 
+                data-img="Images/sumatra coffee.jpg">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+            <a href="specialoffers.html" class="btn btn--outline btn--sm">Subscribe</a>
+          </div>
+        </article>
+        <article class="card coffee-card reveal" data-type="single-origin" data-name="Shan State Ywangan">
+          <img
+            class="card__img"
+            src="Images/shan state coffee.jpg"
+            alt="Shan State Ywangan Coffee"
+          />
+          <div class="card__body">
+            <span class="card__tag">Single Origin · Myanmar</span>
+            <h3>Shan State Ywangan</h3>
+            <p>Cultivated in the highlands of Ywangan, this washed coffee is bright, clean, and beautifully sweet.</p>
+            <div class="tasting-notes">
+              <span class="tasting-note">Orange Blossom</span>
+              <span class="tasting-note">Milk Chocolate</span>
+              <span class="tasting-note">Black Tea</span>
+            </div>
+            <p style="margin-top:0.6rem;font-size:0.82rem;color:#7A8C6E;font-weight:500;"><i class="fa-solid fa-mug-hot"></i> Best brewed: Pour-over, Aeropress</p>
+            <p class="card__price">£11.50 <small style="font-size:0.7rem;font-weight:400;color:#A0714F;">/ 250g</small></p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary add-to-cart-btn" 
+              data-id="shan-ywangan" 
+              data-name="Shan State Ywangan" 
+              data-price="11.50" 
+              data-sub="250g · Single Origin" 
+              data-img="images/shan state coffee.jpg">
+              Add to Cart
+            </button>
+            <a href="specialoffers.html" class="btn btn--outline btn--sm">Subscribe</a>
+          </div>
+        </article>
+
+      </div>
+
+      <p id="noResults" style="display:none;text-align:center;color:#A0714F;margin-top:2rem;font-size:1.1rem;">No coffees found. Try a different search.</p>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand-name">Bean Boutique</p>
+        <p class="footer__tagline">Artisan coffee roasted with care in the heart of Myanmar.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="#" class="footer__social-link" aria-label="Twitter">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+
+          <a href="#" class="footer__social-link" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="coffee.html">Coffee Selection</a></li>
+          <li><a href="equipment.html">Brewing Equipment</a></li>
+          <li><a href="specialoffers.html">Special Offers</a></li>
+          <li><a href="shoppingcart.html">Your Cart</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5>Learn</h5>
+        <ul>
+          <li><a href="events.html">Events &amp; Workshops</a></li>
+          <li><a href="#">Brewing Guides</a></li>
+          <li><a href="#">Our Roastery</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 Bean Boutique Ltd. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger
+    document.getElementById('hamburger').addEventListener('click', function () {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('open');
+      this.setAttribute('aria-expanded', nav.classList.contains('open'));
+    });
+
+    // Animated search filter
+    const searchInput = document.getElementById('coffeeSearch');
+    const cards = document.querySelectorAll('.coffee-card');
+    const noResults = document.getElementById('noResults');
+
+    function filterCards() {
+      const query = searchInput.value.toLowerCase().trim();
+      const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+      let visible = 0;
+
+      cards.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        const type = card.dataset.type;
+        const matchSearch = query === '' || name.includes(query);
+        const matchFilter = activeFilter === 'all' || type === activeFilter;
+
+        if (matchSearch && matchFilter) {
+          card.style.display = '';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      noResults.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    searchInput.addEventListener('input', filterCards);
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.filter-btn').forEach(b => {
+          b.classList.remove('active', 'btn--primary');
+          b.classList.add('btn--outline');
+        });
+        this.classList.add('active', 'btn--primary');
+        this.classList.remove('btn--outline');
+        filterCards();
+      });
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // --- CART & LOCAL STORAGE LOGIC --- //
+
+    // 1. Helper functions to get and save the cart
+    function getCart() { 
+      try { return JSON.parse(localStorage.getItem('bb_cart')) || []; } 
+      catch(e) { return []; } 
+    }
+    function saveCart(cart) { 
+      localStorage.setItem('bb_cart', JSON.stringify(cart)); 
+    }
+
+    // 2. Update the navbar badge number
+    function updateNavCount() {
+      const total = getCart().reduce((sum, item) => sum + item.qty, 0);
+      const navBadge = document.getElementById('navCartCount');
+      if (navBadge) navBadge.textContent = total;
+    }
+
+    // 3. Listen for clicks on any "Add to Cart" button
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const cart = getCart();
+        
+        // Check if item is already in cart
+        const existingItem = cart.find(item => item.id === this.dataset.id);
+        
+        if (existingItem) {
+          existingItem.qty++;
+        } else {
+          cart.push({ 
+            id: this.dataset.id, 
+            name: this.dataset.name, 
+            price: parseFloat(this.dataset.price), 
+            sub: this.dataset.sub, 
+            img: this.dataset.img, 
+            qty: 1 
+          });
+        }
+        
+        saveCart(cart); 
+        updateNavCount(); 
+        showToast(this.dataset.name);
+
+        // Visual feedback: briefly change button text
+        const originalText = this.innerHTML;
+        this.innerHTML = '<i class="fa-solid fa-check"></i> Added!';
+        this.style.background = '#7A8C6E';
+        this.style.color = '#fff';
+        
+        setTimeout(() => { 
+          this.innerHTML = originalText; 
+          this.style.background = ''; 
+          this.style.color = '';
+        }, 1500);
+      });
+    });
+    // 5. Show floating toast notification
+function showToast(productName) {
+  let toast = document.getElementById('cartToast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'cartToast';
+    toast.className = 'cart-toast';
+    document.body.appendChild(toast);
+  }
+  toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${productName} added to cart!`;
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000);
+}
+
+    updateNavCount();
+  </script>
+
+</body>
+</html>
